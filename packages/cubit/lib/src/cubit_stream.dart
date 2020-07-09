@@ -50,12 +50,14 @@ abstract class CubitStream<State> extends Stream<State> {
   StreamSubscription<State> listen(
     void Function(State) onData, {
     Function onError,
+    Function inProcess,
     void Function() onDone,
     bool cancelOnError,
   }) {
     return _stream.listen(
       onData,
       onError: onError,
+      inProcess:inProcess,
       onDone: onDone,
       cancelOnError: cancelOnError,
     );
